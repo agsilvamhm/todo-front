@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/models/todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-read-all',
@@ -7,20 +8,18 @@ import { Todo } from 'src/app/models/todo';
   styleUrls: ['./read-all.component.css']
 })
 export class ReadAllComponent implements OnInit {
-  list: Todo[] = [{
-    titulo: "Teste",
-    dataParafinalizar: new Date,
-    finalizado: false
-  },
-  {
-    titulo: "Teste 2",
-    dataParafinalizar: new Date,
-    finalizado: false}
-]
+  list: Todo[] = []
 
-  constructor() { }
+  constructor(private service: TodoService) { }
 
   ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll():void{
+    this.service.findAll().subscribe((resposta) => {
+      this.list = resposta;
+    })
   }
 
 }
