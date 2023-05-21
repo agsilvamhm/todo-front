@@ -4,11 +4,11 @@ import { Todo } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class CreateComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
   todo: Todo = {
     titulo:'',
@@ -21,17 +21,6 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-create():void{
-  this.formataDate();
-  this.service.create(this.todo).subscribe((resposta)=>{
-    this.service.message('To-do criado com sucesso!')
-    this.router.navigate(['']);
-  }, err => {
-    this.service.message('Falha ao criar To-do');
-    this.router.navigate(['']);
-  })
-}
 
   cancel(): void {
     this.router.navigate([''])
