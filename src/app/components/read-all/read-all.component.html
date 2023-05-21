@@ -6,10 +6,10 @@
 
   <div class="content" *ngFor="let item of list">
     <mat-card class="mat-elevation-z8">
-      <p>Data para finalizar: {{item.dataParafinalizar}}</p>
+      <p>Data para finalizar:{{ item.dataParaFinalizar }}</p>
       <mat-card-header>
-        <mat-card-title>{{item.titulo}}</mat-card-title>
-        <mat-card-subtitle>{{item.descricao}}</mat-card-subtitle>
+        <mat-card-title>{{ item.titulo }}</mat-card-title>
+        <mat-card-subtitle>{{ item.descricao }}</mat-card-subtitle>
       </mat-card-header>
 
       <div class="actions">
@@ -19,7 +19,7 @@
         <button mat-mini-fab color="accent">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-mini-fab color="warm">
+        <button (click)="delete(item.id)" mat-mini-fab color="warm">
           <mat-icon>delete</mat-icon>
         </button>
 
@@ -28,4 +28,4 @@
   </div>
 </div>
 
-<!-- https://www.youtube.com/watch?v=Zxgno9Y4HjU&list=PLA8Qj9w4RGkWIbZFe6JcFKg2WmeNtZ6dJ&index=25 -->
+<!-- https://www.youtube.com/watch?v=FxdD9xWy0BM&list=PLA8Qj9w4RGkWIbZFe6JcFKg2WmeNtZ6dJ&index=26 -->
